@@ -1,3 +1,16 @@
+<?php
+
+require_once('classes/Contato.class.php');
+
+$c = new Contato();
+$c->id = $_GET['id'];
+
+$resultado = $c->BuscarPorID();
+
+print_r($resultado);
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>

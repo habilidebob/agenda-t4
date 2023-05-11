@@ -47,10 +47,14 @@ class Contato{
 
     }
     public function BuscarPorID(){
-
+        $banco = Banco::conectar();
+        $sql = "SELECT * FROM contatos WHERE id = ?";
+        $comando = $banco->prepare($sql);
+        $comando->execute(array($this->id));
+        // "Salvar" o resultado da consulta (tabela) na $resultado
+        $resultado = $comando->fetchAll(PDO::FETCH_ASSOC);
+        Banco::desconectar();
+        return $resultado;
     }
-
 }
-
-
 ?>
