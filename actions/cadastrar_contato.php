@@ -1,7 +1,7 @@
 <?php
 
 // Verificar se a página está sendo carregada por POST:
-    if($_SERVER['REQUEST_METHOD'] == 'POST'){
+    if($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_SESSION['dados'])){
         // Importar a classe:
         require_once('../classes/Contato.class.php');
 
@@ -20,7 +20,7 @@
         header('Location: ../agenda.php');
         exit();
     }else{
-        echo "Essa página deve ser carregada por POST!";
+        echo "Você precisa estar logado e essa página deve ser carregada por POST!";
     }
 
 

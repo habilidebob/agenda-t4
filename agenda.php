@@ -1,9 +1,16 @@
 <?php
 
+session_start();
+// Verificar se a sessão NÃO existe:
+if(!isset($_SESSION['dados'])){
+  header('Location: login.php');
+  exit();
+}
+
+
+
 require_once('classes/Contato.class.php');
-
 $c = new Contato();
-
 // Guardar o array de resultado na variavel:
 $resultado = $c->Listar();
 
