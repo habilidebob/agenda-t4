@@ -1,22 +1,25 @@
 <?php
-
+session_start();
 $erro = "";
 
-if(isset($_GET['id'])){
-  require_once('classes/Contato.class.php');
-
-  $c = new Contato();
-  $c->id = $_GET['id'];
+if(isset($_SESSION['dados'])){
+  if(isset($_GET['id'])){
+    require_once('classes/Contato.class.php');
   
-  $resultado = $c->BuscarPorID();
-
-  // Verificar se existem linhas no $resultado:
-    if(count($resultado) == 0){
-      $erro = "Contato não encontrado!";
-    }
-
+    $c = new Contato();
+    $c->id = $_GET['id'];
+    
+    $resultado = $c->BuscarPorID();
+  
+    // Verificar se existem linhas no $resultado:
+      if(count($resultado) == 0){
+        $erro = "Contato não encontrado!";
+      }
+  }else{
+    $erro = "ID não setado!";
+  }
 }else{
-  $erro = "ID não setado!";
+  $erro = "Realize o login primeiro!";
 }
 
 

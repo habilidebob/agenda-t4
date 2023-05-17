@@ -1,7 +1,8 @@
 <?php
 
+session_start();
 
-if($_SERVER['REQUEST_METHOD'] == 'POST'){
+if($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_SESSION['dados'])){
     require_once('../classes/Contato.class.php');
 
     $c = new Contato();
