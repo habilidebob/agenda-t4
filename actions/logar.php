@@ -1,17 +1,15 @@
 <?php
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
-    $email = $_POST['email'];
-    $senha = $_POST['senha'];
-    // Validação de brincadeirinha:
-    if($email == 'r@a.com' and $senha == '123'){
-        session_start();
-        $_SESSION['dados'] = [$email, $senha];
-        header('Location: ../agenda.php');
-        exit();
-    }else{
-        echo "Email e/ou senha incorretos.";
-    }
+    
+    require_once('../classes/Usuario.class.php');
+    $u = new Usuario();
+    $u->email = $_POST['email'];
+    $u->senha = $_POST['senha'];
+
+    $resultado = $u->Logar();
+
+    print_r($resultado);
 }else{
     echo "A página deve ser carregada por POST!";
 }
