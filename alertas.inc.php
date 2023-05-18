@@ -28,9 +28,13 @@ $erro = [
 <script>
     <?php  if(isset($_GET['erro'])){  ?>
         swal("Erro!", "<?= $erro[$_GET['erro']]; ?>", "error");
+        // Remover o parametro da url:
+        window.history.replaceState(null, null, window.location.pathname);
     <?php } ?>
 
     <?php  if(isset($_GET['msg'])){  ?>
         swal("Sucesso!", "<?= $msg[$_GET['msg']]; ?>", "success");
+        // Remover o parametro da url:
+        window.history.replaceState(null, null, window.location.pathname);
     <?php } ?>
 </script>

@@ -22,6 +22,13 @@ $resultado = $c->Listar();
 </head>
 <body>
   <div class="container">
+
+    <div class="row justify-content-end">
+      <div class="col-1">
+      <a href="sair.php" class="btn btn-danger">Sair</a>
+      </div>
+    </div>
+
     <h3>Bem vindo(a) <?=$_SESSION['dados']['nome']; ?>!</h3>
     <h1>Cadastro de contatos</h1>
     <form class="form-group" action="actions/cadastrar_contato.php" method="POST">
