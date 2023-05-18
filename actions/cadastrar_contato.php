@@ -17,7 +17,7 @@ session_start();
 
         // echo "Contato cadastrado com sucesso!";
         // Redirecionar o jovem de volta à agenda:
-        header('Location: ../agenda.php');
+        header('Location: ../agenda.php?msg=1');
         exit();
     }else{
         echo "Você precisa estar logado e essa página deve ser carregada por POST!";

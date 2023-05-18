@@ -16,10 +16,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_SESSION['dados'])){
     if($c->Atualizar() == 1){
         // Deu certo!
         // Redirecionar:
-        header('Location: ../agenda.php');
+        header('Location: ../agenda.php?msg=3');
         exit();
     }else{
-        echo "Falha ao modificar.";
+        header('Location: ../agenda.php?erro=4');
+        exit();
     }
 }else{
     echo "A página deve ser carregada por POST.<br>";
