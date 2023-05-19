@@ -23,7 +23,7 @@ $resultado = $c->Listar();
 <body>
   <div class="container">
 
-    <div class="row justify-content-end">
+    <div class="row justify-content-end mt-2">
       <div class="col-1">
       <a href="sair.php" class="btn btn-danger">Sair</a>
       </div>
